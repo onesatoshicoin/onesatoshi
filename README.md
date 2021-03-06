@@ -1,0 +1,2 @@
+# onesatoshi
+http://onesatoshicoin.ml
