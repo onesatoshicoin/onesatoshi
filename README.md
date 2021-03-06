@@ -1,8 +1,8 @@
 # OneSatoshicoin
-* is just another ShitCoin*
+###### is just another ShitCoin 
 
 
-a fork of Blackcoin 1.2.5.2 (https://gitlab.com/blackcoin) 
+> a fork of Blackcoin 1.2.5.2 (https://gitlab.com/blackcoin) 
 
 - Ticker: 1SAT
 - Algorithm: Scrypt
@@ -19,7 +19,11 @@ a fork of Blackcoin 1.2.5.2 (https://gitlab.com/blackcoin)
 - .........
 
 Site: https://onesatoshicoin.ml SOON 
+
 Explorer: https://explorer.onesatoshicoin.ml SOON 
+
 Twitter: https://twitter.com/onesatoshicoin 
+
 Github: https://github.com/onesatoshicoin/onesatoshi SOON 
+
 Bicointalk:  https://bitcointalk.org/index.php?topic= SOON 
