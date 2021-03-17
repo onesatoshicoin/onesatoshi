@@ -1,0 +1,2 @@
+debian/bin/onesatoshicoind usr/bin
+src/onesatoshicoind usr/lib/onesatoshicoin
