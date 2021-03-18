@@ -19,8 +19,11 @@
     - balance: 1000000000
     - http://explorer.onesatoshicoin.ml/address/BDDEL77YhX7nFg1tsPKduSa567kihsGQJJ
 
-- Testwallet address: BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
-    - http://explorer.onesatoshicoin.ml/address/BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
+- Test Wallet 
+	- 1 address: BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
+		- http://explorer.onesatoshicoin.ml/address/BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
+	- 2 address: BMUHbWDLSyB15QdHVKT7J9Y4yZ3oQrc2A8
+		- http://explorer.onesatoshicoin.ml/address/BMUHbWDLSyB15QdHVKT7J9Y4yZ3oQrc2A8
     
 - PoS Block Reward: Fees (There are no stakes rewards. the bet will pay only the fees. which has a minimum value of 1 coin)
 
