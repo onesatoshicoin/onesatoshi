@@ -53,5 +53,5 @@ Twitter: https://twitter.com/onesatoshicoin
 
 Github: https://github.com/onesatoshicoin/onesatoshi
 
-Bicointalk:  https://bitcointalk.org/index.php?topic= SOON 
+Bitcointalk :  https://bitcointalk.org/index.php?topic=5324922
 
