@@ -87,8 +87,9 @@ public:
 
         assert(hashGenesisBlock == uint256("0x26cbe24e472b6ecc583f616e1062f3fa8595b04bfade3a3fbcd952d7cfe82464"));
         assert(genesis.hashMerkleRoot == uint256("0xbaa444474724a6693ecf27cef44cf3e98aeb77cb5ee657adbe28d3d727f76109"));
+        vSeeds.push_back(CDNSSeedData("node.onesatoshicoin.com", "node.onesatoshicoin.com"));
+        vSeeds.push_back(CDNSSeedData("explorer.onesatoshicoin.com", "explorer.onesatoshicoin.com"));
         vSeeds.push_back(CDNSSeedData("node.onesatoshicoin.ml", "node.onesatoshicoin.ml"));
-        vSeeds.push_back(CDNSSeedData("explorer.onesatoshicoin.ml", "explorer.onesatoshicoin.ml"));
         
         
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);

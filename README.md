@@ -17,13 +17,13 @@
 - Fixed supply: 1001000000    (1000000 for tests)
 - Premine wallet address: BDDEL77YhX7nFg1tsPKduSa567kihsGQJJ
     - balance: 1000000000
-    - http://explorer.onesatoshicoin.ml/address/BDDEL77YhX7nFg1tsPKduSa567kihsGQJJ
+    - https://explorer.onesatoshicoin.com/address/BDDEL77YhX7nFg1tsPKduSa567kihsGQJJ
 
 - Test Wallet 
 	- 1 address: BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
-		- http://explorer.onesatoshicoin.ml/address/BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
+		- https://explorer.onesatoshicoin.com/address/BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
 	- 2 address: BMUHbWDLSyB15QdHVKT7J9Y4yZ3oQrc2A8
-		- http://explorer.onesatoshicoin.ml/address/BMUHbWDLSyB15QdHVKT7J9Y4yZ3oQrc2A8
+		- https://explorer.onesatoshicoin.com/address/BMUHbWDLSyB15QdHVKT7J9Y4yZ3oQrc2A8
     
 - PoS Block Reward: Fees (There are no stakes rewards. the bet will pay only the fees. which has a minimum value of 1 coin)
 
@@ -45,9 +45,9 @@
 
 
 
-Site: http://onesatoshicoin.ml
+Site: https://onesatoshicoin.com
 
-Explorer: http://explorer.onesatoshicoin.ml
+Explorer: https://explorer.onesatoshicoin.com
 
 Twitter: https://twitter.com/onesatoshicoin 
 
