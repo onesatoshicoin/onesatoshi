@@ -31,13 +31,14 @@
 
 | Block         | Mature coin   | Min stake confirmations   | Min stake time    | Reward    |
 |---------------|:-------------:|:-------------------------:|:-----------------:|:---------:|
-| 1             | 10            | 12                        |  1 minute         | 1000000000|
-| 2             | 10            | 12                        |  1 minute         | 958819    |
-| 3             | 10            | 12                        |  1 minute         | 41181     |
-| 4 - 10000     | 100           | 120                       | 3 hours           | only fees |
-| 10001 - 20000 | 200           | 240                       | 6 hours           | only fees |
-| 20001 - 30000 | 300           | 360                       | 12 hours          | only fees |
-| 30001 - 40000 | 450           | 500                       | 1 day             | only fees |
+| 1             | 10            | 12                        | 1 minute          | 1000000000|
+| 2             | 10            | 12                        | 1 minute          | 958819    |
+| 3             | 10            | 12                        | 1 minute          | 41181     |
+| 4 - 10000     | 10            | 12                        | 1 minute          | only fees |
+| 10001 - 20000 | 100           | 120                       | 3 hours           | only fees |
+| 20001 - 30000 | 200           | 240                       | 6 hours           | only fees |
+| 30001 - 40000 | 300           | 360                       | 12 hours          | only fees |
+| 40001 - 50000 | 450           | 500                       | 1 day             | only fees |
 |  >= 50001     | 950           | 1000                      | 7 days            | only fees |
 
 
