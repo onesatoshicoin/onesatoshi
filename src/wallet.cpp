@@ -1445,7 +1445,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                     return false;
 
                 int64_t nChange = nValueIn - nValue - nFeeRet;
-/*
+
                 if (nChange > 0)
                 {
                     // Fill a vout to ourself
@@ -1480,7 +1480,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                     vector<CTxOut>::iterator position = wtxNew.vout.begin()+GetRandInt(wtxNew.vout.size()+1);
                     wtxNew.vout.insert(position, CTxOut(nChange, scriptChange));
                 }
-                else */
+                else
                     reservekey.ReturnKey();
 
                 // Fill vin
@@ -1503,14 +1503,16 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                     return false;
 
                 // Check that enough fee is included
-                int64_t nPayFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
+                int64_t nPayFee = nValue*0.001;
                 int64_t nMinFee = GetMinFee(wtxNew, 1, GMF_SEND, nBytes);
 
-                if (nFeeRet < max(nPayFee, nMinFee))
+                
+                if (nFeeRet < max(nPayFee, nMinFee))                
                 {
                     nFeeRet = max(nPayFee, nMinFee);
                     continue;
                 }
+                
 
                 // Fill vtxPrev by copying from previous transactions vtxPrev
                 wtxNew.AddSupportingTransactions(txdb);
@@ -1670,7 +1672,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             break; // if kernel is found stop searching
     }
 
-    if ( nCredit > nBalance - nReserveBalance)
+    if (nCredit > nBalance - nReserveBalance)
         return false;
 
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
@@ -1699,22 +1701,20 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     // Calculate reward
     {
         int64_t nReward = GetProofOfStakeReward(pindexPrev, 0, nFees);
-        //if (nReward <= 0)
-          //  return false;
+        if (nReward <= 0)
+            return false;
 
         nCredit += nReward;
     }
 
-    if (nCredit >= GetStakeSplitThreshold()){
+    if (nCredit >= GetStakeSplitThreshold())
         txNew.vout.push_back(CTxOut(0, txNew.vout[1].scriptPubKey)); //split stake
-    }
 
     // Set output amount
     if (txNew.vout.size() == 3)
-    {        
+    {
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;
-        txNew.vout[2].nValue = nCredit-txNew.vout[1].nValue;
-        
+        txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue;
     }
     else
         txNew.vout[1].nValue = nCredit;

@@ -27,3 +27,4 @@ build
 .vs/*
 
 !src/leveldb/Makefile
+src/onesatoshicoind

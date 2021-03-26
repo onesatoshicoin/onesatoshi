@@ -8,40 +8,37 @@
 - Ticker: 1SAT
 - Algorithm: Scrypt
 - Mining type: POW / POS (Proof of Work)
-    - POW OVER 
-- Block reward : 1000000 
-- Last POW block reward : 1001
+- Last POW block reward : 3
 - Last POW block: 10000 (only fees)
-    - Min fee 1 
-- Block Time: 600 seconds per block  (10 minutes)
+- Fees 
+    - 0.1% of transfer 
+    - minimal 1 COIN 
+- Block Time: 60 seconds per block  
 - Fixed supply: 1001000000    (1000000 for tests)
-- Premine wallet address: BDDEL77YhX7nFg1tsPKduSa567kihsGQJJ
+- Premine wallet address: 	B5YNj2fwJuJAYJegV1DDWZoWwNwtzig7e4
     - balance: 1000000000
-    - https://explorer.onesatoshicoin.com/address/BDDEL77YhX7nFg1tsPKduSa567kihsGQJJ
+    - https://explorer.onesatoshicoin.com/address/B5YNj2fwJuJAYJegV1DDWZoWwNwtzig7e4
 
-- Test Wallet 
-	- 1 address: BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
-		- https://explorer.onesatoshicoin.com/address/BP3Lwp62VoUxSzfFPbtiB2Gb8LBQV1nkcH
-	- 2 address: BMUHbWDLSyB15QdHVKT7J9Y4yZ3oQrc2A8
-		- https://explorer.onesatoshicoin.com/address/BMUHbWDLSyB15QdHVKT7J9Y4yZ3oQrc2A8
+- Tests Wallet:  oNgG8EBgGfHD5q9d7kWABZk1kqjVzzkYK5
+	- https://explorer.onesatoshicoin.com/address/oNgG8EBgGfHD5q9d7kWABZk1kqjVzzkYK5
+- Bills Wallet:  oWrHAavzyCSPXLtu6y9p4RfWizRUTRKhKW
+	- https://explorer.onesatoshicoin.com/address/oWrHAavzyCSPXLtu6y9p4RfWizRUTRKhKW
+
+    
     
 - PoS Block Reward: Fees (There are no stakes rewards. the bet will pay only the fees. which has a minimum value of 1 coin)
 
 
 | Block         | Mature coin   | Min stake confirmations   | Min stake time    | Reward    |
 |---------------|:-------------:|:-------------------------:|:-----------------:|:---------:|
-| 1 - 1000      | 300           | 360                       | 6 hours           | 1000000   |
-| 1001 - 5500   | 300           | 360                       | 6 hours           | only fees |
-| 5501 - 7120   | 100           | 120                       | 3 hours           | only fees |
-| 7121 - 7125   | 10            | 12                        | 10 minutes        | only fees |
-| 7126 - 7500   | 20            | 24                        | 1 hour            | only fees |
-| 7501 - 8000   | 50            | 60                        | 2 hours           | only fees |
-| 8001 - 10000  | 100           | 120                       | 6 hours           | only fees |
-| 10001 - 20000 | 200           | 240                       | 12 hours          | only fees |
-| 20001 - 30000 | 300           | 360                       | 1 day             | only fees |
-| 30001 - 40000 | 450           | 500                       | 2 days            | only fees |
+| 1             | 10            | 12                        |  1 minute         | 1000000000|
+| 2             | 10            | 12                        |  1 minute         | 958819    |
+| 3             | 10            | 12                        |  1 minute         | 41181     |
+| 4 - 10000     | 100           | 120                       | 3 hours           | only fees |
+| 10001 - 20000 | 200           | 240                       | 6 hours           | only fees |
+| 20001 - 30000 | 300           | 360                       | 12 hours          | only fees |
+| 30001 - 40000 | 450           | 500                       | 1 day             | only fees |
 |  >= 50001     | 950           | 1000                      | 7 days            | only fees |
-
 
 
 
@@ -54,4 +51,3 @@ Twitter: https://twitter.com/onesatoshicoin
 Github: https://github.com/onesatoshicoin/onesatoshi
 
 Bitcointalk :  https://bitcointalk.org/index.php?topic=5324922
-
