@@ -15,9 +15,9 @@
     - minimal 1 COIN 
 - Block Time: 60 seconds per block  
 - Fixed supply: 1001000000    (1000000 for tests)
-- Premine wallet address: 	B5YNj2fwJuJAYJegV1DDWZoWwNwtzig7e4
+- Premine wallet address: 	oJBt7Z5hhvusTqDq2yPy6VA6A6p5mtMqyW
     - balance: 1000000000
-    - https://explorer.onesatoshicoin.com/address/B5YNj2fwJuJAYJegV1DDWZoWwNwtzig7e4
+    - https://explorer.onesatoshicoin.com/address/oJBt7Z5hhvusTqDq2yPy6VA6A6p5mtMqyW
 
 - Tests Wallet:  oNgG8EBgGfHD5q9d7kWABZk1kqjVzzkYK5
 	- https://explorer.onesatoshicoin.com/address/oNgG8EBgGfHD5q9d7kWABZk1kqjVzzkYK5
