@@ -8,23 +8,20 @@
 - Ticker: 1SAT
 - Algorithm: Scrypt
 - Mining type: POW / POS (Proof of Work)
-- Last POW block reward : 3
+- Block reward : 100,000,000  Coins
+- Last POW block reward : 10
 - Last POW block: 10000 (only fees)
-- Fees 
-    - 0.1% of transfer 
-    - minimal 1 COIN 
-- Block Time: 60 seconds per block  
-- Fixed supply: 1001000000    (1000000 for tests)
-- Premine wallet address: 	oJBt7Z5hhvusTqDq2yPy6VA6A6p5mtMqyW
-    - balance: 1000000000
-    - https://explorer.onesatoshicoin.com/address/oJBt7Z5hhvusTqDq2yPy6VA6A6p5mtMqyW
+- Block Time: 600 seconds per block  (10 minutes)
+- Fixed supply: 1,000,000,000  Coins
 
-- Tests Wallet:  oNgG8EBgGfHD5q9d7kWABZk1kqjVzzkYK5
-	- https://explorer.onesatoshicoin.com/address/oNgG8EBgGfHD5q9d7kWABZk1kqjVzzkYK5
-- Bills Wallet:  oWrHAavzyCSPXLtu6y9p4RfWizRUTRKhKW
-	- https://explorer.onesatoshicoin.com/address/oWrHAavzyCSPXLtu6y9p4RfWizRUTRKhKW
 
-    
+- Premine wallet address: oNEZA7eGNJzr9LB2jVoD8bSPbwCQKKotdF
+    - https://explorer.onesatoshicoin.com/address/oNEZA7eGNJzr9LB2jVoD8bSPbwCQKKotdF
+
+- Bills Wallet 
+	- 1 address: oNECtHtzP1nzy3mC1NC1gHg56e6v3MX886
+		- https://explorer.onesatoshicoin.com/address/oNECtHtzP1nzy3mC1NC1gHg56e6v3MX886
+
     
 - PoS Block Reward: 
     -  Only Fees
@@ -40,6 +37,7 @@
 | 20000 - 49999 | 200           | 240                       | 6 hours           | only fees |
 | 50000 - 99999 | 300           | 360                       | 1 day             | only fees |
 |  >= 100000    | 950           | 1000                      | 7 days            | only fees |
+
 
 
 

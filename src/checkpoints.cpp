@@ -25,6 +25,7 @@ namespace Checkpoints
     //    timestamp before)
     // + Contains no strange transactions
     //
+
     static MapCheckpoints mapCheckpoints   =
         boost::assign::map_list_of
         (    1,   uint256("0x6d82fc75145105c260ca61430c463a6a80e77047ad464aeada5164c0aed8e7b8"))
@@ -51,7 +52,6 @@ namespace Checkpoints
         ( 2100,   uint256("0x64e5190575a66ad9169b77946bef0631705824eeec43ac555f74a0edc169656f"))
         ( 2200,   uint256("0xa8b7570f3a00b14237f8bb651b38cfa205324d58e4e14710f01d72d58b13cbf7"))
         ( 2300,   uint256("0x7351a015609014f37a87f90a35929510c010051c36b9f1b8dace8545c61e5bf0"))
-
 
 
 

@@ -1508,12 +1508,10 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                 int64_t nMinFee = GetMinFee(wtxNew, 1, GMF_SEND, nBytes);
               
                 if (nFeeRet < max(nPayFee, nMinFee))
-
                 {
                     nFeeRet = max(nPayFee, nMinFee);
                     continue;
                 }
-                
 
                 // Fill vtxPrev by copying from previous transactions vtxPrev
                 wtxNew.AddSupportingTransactions(txdb);
@@ -1673,7 +1671,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             break; // if kernel is found stop searching
     }
 
-    if (nCredit > nBalance - nReserveBalance)
+    if ( nCredit > nBalance - nReserveBalance)
         return false;
 
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
@@ -1702,8 +1700,8 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     // Calculate reward
     {
         int64_t nReward = GetProofOfStakeReward(pindexPrev, 0, nFees);
-        if (nReward <= 0)
-            return false;
+        //if (nReward <= 0)
+          //  return false;
 
         nCredit += nReward;
     }
@@ -1720,10 +1718,15 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     if (txNew.vout.size() >= 3)
     {        
 
+         nSplit= nCredit;   
+            int i=1;
+         while(nSplit>GetStakeSplitThreshold()){
+             nSplit-=GetStakeSplitThreshold();
+            txNew.vout[i++].nValue = GetStakeSplitThreshold();
+         }
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;    
-        txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue;
+        txNew.vout[2].nValue = nCredit -  txNew.vout[1].nValue;
         
-
     }
     else
         txNew.vout[1].nValue = nCredit;
