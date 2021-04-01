@@ -88,12 +88,13 @@ public:
         assert(hashGenesisBlock == uint256("0x26cbe24e472b6ecc583f616e1062f3fa8595b04bfade3a3fbcd952d7cfe82464"));
         assert(genesis.hashMerkleRoot == uint256("0xbaa444474724a6693ecf27cef44cf3e98aeb77cb5ee657adbe28d3d727f76109"));
         vSeeds.push_back(CDNSSeedData("node.onesatoshicoin.com", "node.onesatoshicoin.com"));
-        vSeeds.push_back(CDNSSeedData("explorer.onesatoshicoin.com", "explorer.onesatoshicoin.com"));
         vSeeds.push_back(CDNSSeedData("node.onesatoshicoin.ml", "node.onesatoshicoin.ml"));
+        vSeeds.push_back(CDNSSeedData("explorer.onesatoshicoin.com", "explorer.onesatoshicoin.com"));
         
         
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
+          
+        base58Prefixes[PUBKEY_ADDRESS] =  std::vector<unsigned char>(1, 115);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 99);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1, 153);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x05)(0x98)(0xE4)(0x4E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x08)(0xCB)(0xF4).convert_to_container<std::vector<unsigned char> >();

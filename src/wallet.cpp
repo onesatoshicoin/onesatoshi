@@ -23,9 +23,8 @@ int64_t nTransactionFee = MIN_TX_FEE;
 int64_t nReserveBalance = 0;
 int64_t nMinimumInputValue = 0;
 
-static int64_t GetStakeCombineThreshold() { return 5000 * COIN; }
-static int64_t GetStakeSplitThreshold() { return 2 * GetStakeCombineThreshold(); }
-
+static int64_t GetStakeCombineThreshold() { return 1000 * COIN; }
+static int64_t GetStakeSplitThreshold() {   return 5000 * COIN; }
 //////////////////////////////////////////////////////////////////////////////
 //
 // mapWallet
@@ -1445,7 +1444,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                     return false;
 
                 int64_t nChange = nValueIn - nValue - nFeeRet;
-/*
+
                 if (nChange > 0)
                 {
                     // Fill a vout to ourself
@@ -1480,7 +1479,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                     vector<CTxOut>::iterator position = wtxNew.vout.begin()+GetRandInt(wtxNew.vout.size()+1);
                     wtxNew.vout.insert(position, CTxOut(nChange, scriptChange));
                 }
-                else */
+                else
                     reservekey.ReturnKey();
 
                 // Fill vin
@@ -1504,8 +1503,10 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
 
                 // Check that enough fee is included
                 int64_t nPayFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
+                if(nValue>0)
+                        nPayFee = ((nValue*0.0001)/ CENT)*CENT;
                 int64_t nMinFee = GetMinFee(wtxNew, 1, GMF_SEND, nBytes);
-
+              
                 if (nFeeRet < max(nPayFee, nMinFee))
                 {
                     nFeeRet = max(nPayFee, nMinFee);
@@ -1681,7 +1682,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             && pcoin.first->GetHash() != txNew.vin[0].prevout.hash)
         {
             // Stop adding more inputs if already too many inputs
-            if (txNew.vin.size() >= 10)
+            if (txNew.vin.size() >= 100)
                 break;
             // Stop adding inputs if reached reserve limit
             if (nCredit + pcoin.first->vout[pcoin.second].nValue > nBalance - nReserveBalance)
@@ -1705,15 +1706,20 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         nCredit += nReward;
     }
 
+
     if (nCredit >= GetStakeSplitThreshold()){
-        txNew.vout.push_back(CTxOut(0, txNew.vout[1].scriptPubKey)); //split stake
+ 
+            txNew.vout.push_back(CTxOut(0, txNew.vout[1].scriptPubKey)); //split stake        
+         
+        
     }
 
     // Set output amount
-    if (txNew.vout.size() == 3)
+    if (txNew.vout.size() >= 3)
     {        
-        txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;
-        txNew.vout[2].nValue = nCredit-txNew.vout[1].nValue;
+
+        txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;    
+        txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue;
         
     }
     else
