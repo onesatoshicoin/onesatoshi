@@ -586,12 +586,10 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBlockSize, enum GetMinFe
 {
     // Base fee is either MIN_TX_FEE or MIN_RELAY_TX_FEE
     int64_t nBaseFee = (mode == GMF_RELAY) ? MIN_RELAY_TX_FEE : MIN_TX_FEE;
-    
-    //unsigned int nNewBlockSize = nBlockSize + nBytes;
-    //int64_t nMinFee = (1 + (int64_t)nBytes / 1000) * nBaseFee;
-    int64_t nMinFee=tx.GetValueOut()*0.001;
-        
-        LogPrintf("FEE: out %d => %d\n", tx.GetValueOut(), nMinFee);
+
+    unsigned int nNewBlockSize = nBlockSize + nBytes;
+    int64_t nMinFee = (1 + (int64_t)nBytes / 1000) * nBaseFee;
+
     // Raise the price as the block approaches full
     if (nBlockSize != 1 && nNewBlockSize >= MAX_BLOCK_SIZE_GEN/2)
     {
@@ -603,10 +601,7 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBlockSize, enum GetMinFe
  nMinFee/=10; 
     if (!MoneyRange(nMinFee))
         return MAX_MONEY;
-
     return nMinFee;
-    //if (!MoneyRange(nMinFee))
-      //  return MAX_MONEY;
 }
 
 
@@ -982,26 +977,13 @@ static CBigNum GetProofOfStakeLimit(int nHeight)
 
 void CheckMatureRules(const CBlockIndex* pindexPrev)
 {
-<<<<<<< HEAD
 
    
-    if(pindexPrev->nHeight >= 5000){
-        nStakeMinConfirmations = 120;
-        nStakeMinAge =   (60*60); // 1 hour
-=======
-  
-        nStakeMinConfirmations = 12;
-        nStakeMinAge =   60; // 1 minute
-        nCoinbaseMaturity = 10;
-
     if(pindexPrev->nHeight >= 10000){
         nStakeMinConfirmations = 120;
-        nStakeMinAge =   (60*60)*3; // 3 hours
->>>>>>> be696e523819e9658ff420defd8ace329e75c2ff
+        nStakeMinAge =   (60*60); // 1 hour
         nCoinbaseMaturity = 100;
     }
-
-
     if(pindexPrev->nHeight >= 20000){
         nStakeMinConfirmations = 240;
         nStakeMinAge =   (60*60)*6; // 6 hours
@@ -1009,20 +991,10 @@ void CheckMatureRules(const CBlockIndex* pindexPrev)
     }
     if(pindexPrev->nHeight >= 50000){
         nStakeMinConfirmations = 360;
-        nStakeMinAge =  (60 * 60) * 12; // 12 hours
+        nStakeMinAge =  (60 * 60) * 24; // 1 Day
         nCoinbaseMaturity = 300;
     }
-<<<<<<< HEAD
     if(pindexPrev->nHeight >= 100000){
-=======
-    if(pindexPrev->nHeight >= 40000){
-        nStakeMinConfirmations = 500;
-        nStakeMinAge =  (60 * 60) * 24; // 1 Day
-        nCoinbaseMaturity = 450;
-    }
-
-    if(pindexPrev->nHeight >= 50000){
->>>>>>> be696e523819e9658ff420defd8ace329e75c2ff
         nStakeMinConfirmations = 1000;
         nStakeMinAge =  ((60 * 60) * 24)*7; // 7 Days
         nCoinbaseMaturity = 950;
@@ -1039,19 +1011,9 @@ int64_t GetProofOfWorkReward(const CBlockIndex* pindexPrev, int64_t nFees)
 
   CheckMatureRules(pindexPrev);
 
-<<<<<<< HEAD
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nFees), 1);
     if(pindexPrev->nHeight < 10)
         return (100000000 * COIN)+nFees;
-=======
-    LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(1), 1);
-    if(pindexPrev->nHeight == 0)
-        return (1000000000 * COIN); // PREMINE
-    else if(pindexPrev->nHeight == 1)
-        return (958819 * COIN); // TESTS
-    else if(pindexPrev->nHeight == 2)
-        return (41181 * COIN); //  BILLS 
->>>>>>> be696e523819e9658ff420defd8ace329e75c2ff
     return nFees;
 
 
@@ -1066,14 +1028,9 @@ int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, i
   CheckMatureRules(pindexPrev);
     
     LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nFees), nCoinAge);
-<<<<<<< HEAD
     if(pindexPrev->nHeight < 10)
         return (100000000 * COIN)+nFees;
     return nFees;
-=======
-
-        return nFees;
->>>>>>> be696e523819e9658ff420defd8ace329e75c2ff
   
         
 }
