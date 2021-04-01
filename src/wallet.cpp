@@ -1718,12 +1718,6 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     if (txNew.vout.size() >= 3)
     {        
 
-         nSplit= nCredit;   
-            int i=1;
-         while(nSplit>GetStakeSplitThreshold()){
-             nSplit-=GetStakeSplitThreshold();
-            txNew.vout[i++].nValue = GetStakeSplitThreshold();
-         }
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;    
         txNew.vout[2].nValue = nCredit -  txNew.vout[1].nValue;
         
