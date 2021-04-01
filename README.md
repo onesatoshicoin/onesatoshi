@@ -11,7 +11,7 @@
 - Block reward : 100,000,000  Coins
 - Last POW block reward : 10
 - Last POW block: 10000 (only fees)
-- Block Time: 600 seconds per block  (10 minutes)
+- Block Time: 60 seconds per block  (1 minute)
 - Fixed supply: 1,000,000,000  Coins
 
 
