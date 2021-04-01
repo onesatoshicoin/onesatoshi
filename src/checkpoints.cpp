@@ -55,9 +55,9 @@ namespace Checkpoints
 
 
 
+
         ;
         
-
 
     // TestNet has no checkpoints
     static MapCheckpoints mapCheckpointsTestnet;

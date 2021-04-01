@@ -586,10 +586,11 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBlockSize, enum GetMinFe
 {
     // Base fee is either MIN_TX_FEE or MIN_RELAY_TX_FEE
     int64_t nBaseFee = (mode == GMF_RELAY) ? MIN_RELAY_TX_FEE : MIN_TX_FEE;
-
+    
     unsigned int nNewBlockSize = nBlockSize + nBytes;
-    int64_t nMinFee = (1 + (int64_t)nBytes / 1000) * nBaseFee;
-
+    int64_t nMinFee=tx.GetValueOut()*0.001;
+        
+        LogPrintf("FEE: out %d => %d\n", tx.GetValueOut(), nMinFee);
     // Raise the price as the block approaches full
     if (nBlockSize != 1 && nNewBlockSize >= MAX_BLOCK_SIZE_GEN/2)
     {
@@ -598,10 +599,13 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBlockSize, enum GetMinFe
         nMinFee *= MAX_BLOCK_SIZE_GEN / (MAX_BLOCK_SIZE_GEN - nNewBlockSize);
     }
 
- nMinFee/=10; 
+    nMinFee/=10; 
     if (!MoneyRange(nMinFee))
         return MAX_MONEY;
+
     return nMinFee;
+    //if (!MoneyRange(nMinFee))
+      //  return MAX_MONEY;
 }
 
 
@@ -977,13 +981,15 @@ static CBigNum GetProofOfStakeLimit(int nHeight)
 
 void CheckMatureRules(const CBlockIndex* pindexPrev)
 {
-
    
     if(pindexPrev->nHeight >= 5000){
         nStakeMinConfirmations = 120;
         nStakeMinAge =   (60*60); // 1 hour
+
         nCoinbaseMaturity = 100;
     }
+
+
     if(pindexPrev->nHeight >= 20000){
         nStakeMinConfirmations = 240;
         nStakeMinAge =   (60*60)*6; // 6 hours
@@ -991,10 +997,11 @@ void CheckMatureRules(const CBlockIndex* pindexPrev)
     }
     if(pindexPrev->nHeight >= 50000){
         nStakeMinConfirmations = 360;
-        nStakeMinAge =  (60 * 60) * 24; // 1 Day
+        nStakeMinAge =  (60 * 60) * 12; // 12 hours
         nCoinbaseMaturity = 300;
     }
     if(pindexPrev->nHeight >= 100000){
+
         nStakeMinConfirmations = 1000;
         nStakeMinAge =  ((60 * 60) * 24)*7; // 7 Days
         nCoinbaseMaturity = 950;
@@ -1014,6 +1021,7 @@ int64_t GetProofOfWorkReward(const CBlockIndex* pindexPrev, int64_t nFees)
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nFees), 1);
     if(pindexPrev->nHeight < 10)
         return (100000000 * COIN)+nFees;
+
     return nFees;
 
 

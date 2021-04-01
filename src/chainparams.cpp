@@ -48,10 +48,11 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0x70;
-        pchMessageStart[1] = 0x35;
-        pchMessageStart[2] = 0x22;
-        pchMessageStart[3] = 0x05;
+        pchMessageStart[0] = 0xbf;
+        pchMessageStart[1] = 0x0c;
+        pchMessageStart[2] = 0x6b;
+        pchMessageStart[3] = 0xbd;
+
         vAlertPubKey = ParseHex("0x04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
         nDefaultPort = 15800;
         nRPCPort = 15900;
@@ -91,8 +92,6 @@ public:
         vSeeds.push_back(CDNSSeedData("node.onesatoshicoin.ml", "node.onesatoshicoin.ml"));
         vSeeds.push_back(CDNSSeedData("explorer.onesatoshicoin.com", "explorer.onesatoshicoin.com"));
         
-        
-          
         base58Prefixes[PUBKEY_ADDRESS] =  std::vector<unsigned char>(1, 115);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 99);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1, 153);
