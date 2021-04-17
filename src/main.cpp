@@ -1014,6 +1014,9 @@ int64_t GetProofOfWorkReward(const CBlockIndex* pindexPrev, int64_t nFees)
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nFees), 1);
     if(pindexPrev->nHeight < 10)
         return (100000000 * COIN)+nFees;
+
+   
+
     return nFees;
 
 
@@ -1027,9 +1030,13 @@ int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, i
 
   CheckMatureRules(pindexPrev);
     
-    LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nFees), nCoinAge);
+    LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n SUPPLY= %s ", FormatMoney(nFees), nCoinAge, FormatMoney(pindexPrev->nMoneySupply));
     if(pindexPrev->nHeight < 10)
         return (100000000 * COIN)+nFees;
+
+
+    if(pindexPrev->nHeight > 18000 && pindexPrev->nMoneySupply  < 100000000000000000) 
+        return (1 * COIN)+nFees;
     return nFees;
   
         
