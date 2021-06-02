@@ -23,8 +23,8 @@ int64_t nTransactionFee = MIN_TX_FEE;
 int64_t nReserveBalance = 0;
 int64_t nMinimumInputValue = 0;
 
-static int64_t GetStakeCombineThreshold() { return 100 * COIN; }
-static int64_t GetStakeSplitThreshold() {   return 500 * COIN; }
+static int64_t GetStakeCombineThreshold() { return 1 * COIN; }
+static int64_t GetStakeSplitThreshold() {   return 1000000 * COIN; }
 //////////////////////////////////////////////////////////////////////////////
 //
 // mapWallet
@@ -988,7 +988,7 @@ void CWallet::ResendWalletTransactions(bool fForce)
         if (GetTime() < nNextTime)
             return;
         bool fFirst = (nNextTime == 0);
-        nNextTime = GetTime() + GetRand(30 * 60);
+        nNextTime = GetTime() + GetRand((60 * 60)*3);
         if (fFirst)
             return;
 
@@ -1011,7 +1011,7 @@ void CWallet::ResendWalletTransactions(bool fForce)
             CWalletTx& wtx = item.second;
             // Don't rebroadcast until it's had plenty of time that
             // it should have gotten in already by now.
-            if (fForce || nTimeBestReceived - (int64_t)wtx.nTimeReceived > 5 * 60)
+            if (fForce || nTimeBestReceived - (int64_t)wtx.nTimeReceived > (60 * 60)*3)
                 mapSorted.insert(make_pair(wtx.nTimeReceived, &wtx));
         }
         BOOST_FOREACH(PAIRTYPE(const unsigned int, CWalletTx*)& item, mapSorted)
@@ -1505,11 +1505,10 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                 int64_t nPayFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
                 if(nValue>0)
                         nPayFee = ((nValue*0.0001)/ CENT)*CENT;
-                int64_t nMinFee = GetMinFee(wtxNew, 1, GMF_SEND, nBytes);
-              
-                if (nFeeRet < max(nPayFee, nMinFee))
+               
+                if (nFeeRet < max(nPayFee, MIN_TX_FEE))
                 {
-                    nFeeRet = max(nPayFee, nMinFee);
+                    nFeeRet = max(nPayFee, MIN_TX_FEE);
                     continue;
                 }
 

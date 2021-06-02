@@ -1723,7 +1723,7 @@ void RelayTransaction(const CTransaction& tx, const uint256& hash, const CDataSt
 
         // Save original serialized message so newer versions are preserved
         mapRelay.insert(std::make_pair(inv, ss));
-        vRelayExpiration.push_back(std::make_pair(GetTime() + 15 * 60, inv));
+        vRelayExpiration.push_back(std::make_pair(GetTime() + ((60 * 60)*6), inv));
     }
 
     RelayInventory(inv);
