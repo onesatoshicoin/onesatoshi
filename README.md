@@ -43,9 +43,12 @@
 
 Site: https://onesatoshicoin.com
 
+
 Explorer: https://explorer.onesatoshicoin.com
 
 Twitter: https://twitter.com/onesatoshicoin 
+
+Discord: https://discord.gg/C9vQXNeTrV
 
 Github: https://github.com/onesatoshicoin/onesatoshi
 
